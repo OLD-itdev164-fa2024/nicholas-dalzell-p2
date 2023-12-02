@@ -6,7 +6,7 @@ exports.createPages = async ({ graphql, actions }) => {
   return new Promise((resolve, reject) => {
     graphql(`
       {
-        allContentfulBlogPost {
+        allContentfulVideogameReview {
           edges {
             node {
               id
@@ -19,10 +19,10 @@ exports.createPages = async ({ graphql, actions }) => {
       if (result.errors) {
         reject(result.errors)
       }
-      result.data.allContentfulBlogPost.edges.forEach((edge) => {
+      result.data.allContentfulVideogameReview.edges.forEach((edge) => {
         createPage({
           path: edge.node.slug,
-          component: require.resolve("./src/templates/blog-post.js"),
+          component: require.resolve("./src/templates/videogame-review.js"),
           context: {
             slug: edge.node.slug
           },

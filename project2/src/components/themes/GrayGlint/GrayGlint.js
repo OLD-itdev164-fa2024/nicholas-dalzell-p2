@@ -1,5 +1,5 @@
 import React from 'react'
-import mainHeaderImage from './images/AC6.2.png'
+import mainHeaderImage from './images/pslogo.png'
 import { Search } from 'styled-icons/feather'
 
 const images = {

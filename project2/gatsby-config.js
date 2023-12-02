@@ -5,8 +5,8 @@ require('dotenv').config({
 
 module.exports = {
   siteMetadata: {
-    title: `Armored Core 6 Mission Tracker`,
-    description: `Keep track of the missions you have completed in FromSoft's Armored Core 6.`,
+    title: `Nick's Video Game Review Website`,
+    description: `In this site I'll describe, review and rate some of the games I've played this year..`,
     author: `Nick Dalzell`,
     siteUrl: `https://gatsbystarterdefaultsource.gatsbyjs.io/`,
     contact: {
@@ -16,6 +16,12 @@ module.exports = {
     }
   },
   plugins: [
+    {
+      resolve: "gatsby-transformer-remark",
+      options: {
+        plugins: ["gatsby-remark-component"]
+      },
+    },
     `gatsby-plugin-image`,
     `gatsby-plugin-styled-components`,
     {
