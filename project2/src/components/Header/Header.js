@@ -53,9 +53,12 @@ const Header = ({ siteTitle }) => (
     <Section flex>
     <Section width={1/12}
       flex flexDirection="column" justifyContent="center">
-      <ThemeConsumer>
-        {theme => <Image src={theme.images.mainHeaderImage} />}
-      </ThemeConsumer>
+        <StyledLink to="/">
+          <ThemeConsumer>
+            {theme => <Image src={theme.images.mainHeaderImage} />}
+          </ThemeConsumer>
+        </StyledLink>
+      
     </Section>
     <Section width={11/12}
       flex flexDirection="column" justifyContent="center">

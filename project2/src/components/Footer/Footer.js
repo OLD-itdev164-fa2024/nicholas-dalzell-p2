@@ -2,9 +2,6 @@ import * as React from "react"
 import PropTypes from "prop-types"
 import { Link } from "gatsby"
 import styled, { ThemeConsumer } from 'styled-components'
-import { Flex } from 'rebass'
-import { H1 } from '../Heading'
-import { SearchButton } from '../Button'
 import { Section } from '../Section'
 
 const Outer =  styled.footer`
@@ -17,35 +14,8 @@ const Outer =  styled.footer`
   justify-content: space-between;
 `
 
-
-
-const StyledLink = styled(Link)`
-  color: white;
-  text-decoration: none;
-  margin: 0 10px;
-  &:hover {
-    color: lightgray;
-  }
-`
-
 const Image = styled.img`
   margin: 0;
-`
-
-const Nav = styled(Flex)`
-  flex-direction: row;
-  justify-content: flex-end;
-  align-items: center;
-`
-
-const Title = styled(H1)`
-  flex: 4;
-`
-
-const MediaQuery = styled.div`
-  @media (max-width: 600px) {
-    display: none;
-  }
 `
 
 const Footer = ({ siteTitle }) => (
@@ -53,9 +23,12 @@ const Footer = ({ siteTitle }) => (
     <Section flex>
     <Section width={2/12}
       flex flexDirection="column" justifyContent="center">
-      <ThemeConsumer>
-        {theme => <Image src={theme.images.mainFooterImage} />}
-      </ThemeConsumer>
+        <Link to="/">
+          <ThemeConsumer>
+            {theme => <Image src={theme.images.mainFooterImage} />}
+          </ThemeConsumer>
+        </Link>
+      
     </Section>
     <Section width={10/12}
       flex flexDirection="column" justifyContent="center">
