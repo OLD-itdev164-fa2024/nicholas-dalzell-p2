@@ -1,27 +1,41 @@
 import * as React from "react"
 import { graphql, Link } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image"
-
+import styled from 'styled-components'
+import { Box, Card, Heading} from "rebass"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
-import { List, ListItem } from '../components/List'
 import * as styles from "../components/index.module.css"
 
+
+const Grid = styled(Box)`
+  box-sizing: border-box;
+  margin: 0px;
+  min-width: 0px;
+  display: grid;
+  gap: 100px;
+  grid-template-columns: repeat(auto-fit, minmax(128px, 1fr));
+`
 
 const IndexPage = ( {data} ) => (
   <Layout>
     <Seo title="Home"/>
-    <ul className={styles.list}>
-      {
+    <Grid>
+    {
         data.allContentfulVideogameReview.edges.map(edge => (
-          <li key={edge.node.id}>
-            <Link to={edge.node.slug}>{edge.node.title}</Link>
-            <div>{edge.node.description}</div>
+          <Card width={256} p={3} key={edge.node.id}>
             
-          </li>
+            <Link to={edge.node.slug}>
+              
+            <Heading>{edge.node.title}</Heading>
+            </Link>
+            
+            <div>{edge.node.description}</div>
+          </Card>
+          
         ))
       }
-    </ul>
+    </Grid>
   </Layout>
 )
 
@@ -37,48 +51,16 @@ export const query = graphql`
         slug
         id
         title
-        description
         heroImage {
-          gatsbyImageData
+          gatsbyImageData (
+            layout: CONSTRAINED
+            placeholder: BLURRED
+            width: 300
+          )
         }
+        description
       }
     }
   }
 }
 `
-
-
-
-/**
- * 
-
-
-
-
-
-    export const query = graphql`
-      {
-        allContentfulBlogPost {
-        edges {
-          node {
-            id
-            title
-            slug
-            body {
-              childMarkdownRemark {
-                excerpt
-              }
-            }
-            heroImage {
-              gatsbyImagedata(
-                layout: CONSTRAINED
-                placeholder: BLURRED
-                width: 300
-              )
-            }
-          }
-        }
-      }
-    }
-`
- */

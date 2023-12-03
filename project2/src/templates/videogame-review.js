@@ -4,13 +4,12 @@ import Layout from '../components/layout';
 import { H1 } from '../components/Heading'
 
 const VideogameReview = ({ data }) => {
-    const { title, description, rating } = data.contentfulVideogameReview;
+    const { title, rating, theReview } = data.contentfulVideogameReview;
 
     return (
         <Layout>
             <H1>{title}</H1>
-            <div>{description}</div>
-            <div>Rating: {rating}</div>
+
             <div dangerouslySetInnerHTML={{__html: data.contentfulVideogameReview.
                 markdownContent.childMarkdownRemark.html}}/>      
         </Layout>
@@ -27,6 +26,11 @@ query videogameReviewQuery($slug: String!) {
       slug
       description
       rating
+      theReview {
+        childMarkdownRemark {
+          html
+        }
+      }
       markdownContent {
         childMarkdownRemark {
             html

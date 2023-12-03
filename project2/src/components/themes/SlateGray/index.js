@@ -1,0 +1,1 @@
+export { SlateGray } from './SlateGray'

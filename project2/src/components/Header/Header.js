@@ -88,9 +88,3 @@ Header.defaultProps = {
 }
 
 export { Header }
-
-/**
- * const H1 = styled.H1`
-  margin: 0px;
-`
- */

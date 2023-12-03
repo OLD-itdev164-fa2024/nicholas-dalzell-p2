@@ -1,9 +1,11 @@
 import React from 'react'
 import mainHeaderImage from './images/pslogo.png'
+import mainFooterImage from './images/footer.png'
 import { Search } from 'styled-icons/feather'
 
 const images = {
-    mainHeaderImage
+    mainHeaderImage,
+    mainFooterImage
 }
 
 const icons = {
@@ -43,7 +45,17 @@ const variants = {
             backgroundColor: theme.colors.grays[10]
         }
         
+    },
+    footer: {
+        primary: {
+            backgroundColor: theme.colors.grays[3]
+        }
+    },
+    main: {
+        primary: {
+            backgroundColor: theme.colors.grays[1]
+        }
     }
 }
 
-export const GrayGlint = { ...theme, variants, images, icons }
+export const SlateGray = { ...theme, variants, images, icons }
