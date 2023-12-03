@@ -18,6 +18,7 @@ import "./layout.css"
 
 const Content = styled.div`
   margin: 0 auto;
+  background: ${({ theme }) => theme.variants.main.primary.backgroundColor};
   max-width: var(--size-content);
   padding: var(--size-gutter);
 `
@@ -38,9 +39,9 @@ const Layout = ({ children }) => {
       <ThemeProvider theme={SlateGray}>
       <Header siteTitle={data.site.siteMetadata.title || `Title`} />
       <Content>
-        <Main  m={20}>{children}</Main>
-        <Footer/>
+        <Main  m={0}>{children}</Main>
       </Content>
+      <Footer/>
       </ThemeProvider>
 
       

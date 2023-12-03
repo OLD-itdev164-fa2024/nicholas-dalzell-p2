@@ -51,13 +51,13 @@ const MediaQuery = styled.div`
 const Footer = ({ siteTitle }) => (
   <Outer>
     <Section flex>
-    <Section width={4/12}
+    <Section width={2/12}
       flex flexDirection="column" justifyContent="center">
       <ThemeConsumer>
         {theme => <Image src={theme.images.mainFooterImage} />}
       </ThemeConsumer>
     </Section>
-    <Section width={8/12}
+    <Section width={10/12}
       flex flexDirection="column" justifyContent="center">
       © {new Date().getFullYear()} &middot; Built with
           {` `}

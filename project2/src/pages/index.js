@@ -23,14 +23,18 @@ const IndexPage = ( {data} ) => (
     <Grid>
     {
         data.allContentfulVideogameReview.edges.map(edge => (
-          <Card width={256} p={3} key={edge.node.id}>
+          <Card width={240} p={3} key={edge.node.id}>
             
             <Link to={edge.node.slug}>
+              <div>
+                <GatsbyImage image={edge.node.heroImage.gatsbyImageData}/>
+              </div>
               
-            <Heading>{edge.node.title}</Heading>
+              <Heading>{edge.node.title}</Heading>
             </Link>
             
-            <div>{edge.node.description}</div>
+            
+            <div><Heading>{edge.node.slogan}</Heading></div>
           </Card>
           
         ))
@@ -58,7 +62,7 @@ export const query = graphql`
             width: 300
           )
         }
-        description
+        slogan
       }
     }
   }

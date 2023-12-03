@@ -48,12 +48,12 @@ const variants = {
     },
     footer: {
         primary: {
-            backgroundColor: theme.colors.grays[3]
+            backgroundColor: theme.colors.grays[5]
         }
     },
     main: {
         primary: {
-            backgroundColor: theme.colors.grays[1]
+            backgroundColor: theme.colors.grays[2]
         }
     }
 }

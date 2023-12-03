@@ -4,12 +4,19 @@ import Layout from '../components/layout';
 import { H1 } from '../components/Heading'
 
 const VideogameReview = ({ data }) => {
-    const { title, rating, theReview } = data.contentfulVideogameReview;
+    const { title, description, rating, theReview } = data.contentfulVideogameReview;
 
     return (
         <Layout>
             <H1>{title}</H1>
-
+            <p>
+            <div>{description}</div>
+            </p>
+            <p></p>
+            <div>Rating: {rating}</div>
+            <p></p>
+            <div dangerouslySetInnerHTML={{__html: theReview.childMarkdownRemark.html}}></div>
+            <p></p>
             <div dangerouslySetInnerHTML={{__html: data.contentfulVideogameReview.
                 markdownContent.childMarkdownRemark.html}}/>      
         </Layout>
